@@ -75,7 +75,7 @@ Create a comprehensive Entity-Relationship (ER) diagram for the Airbnb-style pla
 
 ## 3. ER Diagram
 
-![ER Diagram](,./er_diagram.png)
+![ER Diagram](../er_diagram.png)
 
 ---
 
