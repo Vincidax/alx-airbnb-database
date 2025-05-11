@@ -75,13 +75,7 @@ Create a comprehensive Entity-Relationship (ER) diagram for the Airbnb-style pla
 
 ## 3. ER Diagram
 
-Create a visual ER diagram using Draw.io, dbdiagram.io, or another tool. Ensure:
-- PKs and FKs are clearly marked
-- Data types and constraints (ENUMs, NOT NULLs, etc.) are included where relevant
-- Relationships are labeled with cardinality (1:N, N:M, etc.)
-
-Export your diagram as an image or PDF and include it in this directory as:
-- `ERD_diagram.png` or `ERD_diagram.pdf`
+![ER Diagram](,./er_diagram.png)
 
 ---
 
