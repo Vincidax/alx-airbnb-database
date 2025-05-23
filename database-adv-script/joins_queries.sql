@@ -30,6 +30,7 @@ INNER JOIN
 SELECT 
     properties.id AS property_id,
     properties.title,
+    properties.description,
     properties.location,
     reviews.id AS review_id,
     reviews.rating,
@@ -37,8 +38,9 @@ SELECT
 FROM 
     properties
 LEFT JOIN 
-    reviews ON properties.id = reviews.property_id;
-
+    reviews ON reviews.property_id = properties.id
+ORDER BY 
+    properties.id;
 -- ========================================
 -- 3. FULL OUTER JOIN (PostgreSQL syntax)
 -- Retrieve all users and all bookings, even if unmatched
