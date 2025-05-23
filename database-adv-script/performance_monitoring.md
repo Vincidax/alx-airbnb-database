@@ -38,11 +38,14 @@ Query B exhibited slow performance due to large groupings on an unindexed proper
 sql
 
 -- For filtering and ordering by user
-```CREATE INDEX idx_bookings_user_id_start_date ON bookings(user_id, start_date DESC);
+```
+CREATE INDEX idx_bookings_user_id_start_date ON bookings(user_id, start_date DESC);
 ```
 
 -- For aggregating by property
+```
 CREATE INDEX idx_bookings_property_id ON bookings(property_id);
+```
 ## 4. Post-Optimization Analysis
 Query A: Before vs After Index
 
