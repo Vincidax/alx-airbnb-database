@@ -1,17 +1,28 @@
--- Index on user_id in bookings table for faster lookups by user
-CREATE INDEX IF NOT EXISTS idx_bookings_user_id ON bookings(user_id);
+-- Create indexes to optimize queries
 
--- Composite index on (user_id, booking_date DESC) for filtering and ordering
-CREATE INDEX IF NOT EXISTS idx_bookings_user_id_booking_date ON bookings(user_id, booking_date DESC);
+-- Index on bookings for filtering by user_id and ordering by booking_date
+CREATE INDEX idx_bookings_user_id_booking_date ON bookings(user_id, booking_date DESC);
 
--- Index on property_id in bookings table for fast property-related queries
-CREATE INDEX IF NOT EXISTS idx_bookings_property_id ON bookings(property_id);
+-- Index on users for email-based lookups
+CREATE INDEX idx_users_email ON users(email);
 
--- Index on email in users table for quick user lookups by email
-CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
+-- Index on properties for owner_id-based lookups
+CREATE INDEX idx_properties_owner_id ON properties(owner_id);
 
--- Index on host_id in properties table to speed up joins/filters by host
-CREATE INDEX IF NOT EXISTS idx_properties_host_id ON properties(host_id);
+-- Performance Measurement using EXPLAIN ANALYZE
 
--- Optional: Index on location in properties table if filtering/searching by location
-CREATE INDEX IF NOT EXISTS idx_properties_location ON properties(location);
+-- Before adding index (comment this out after index is added)
+-- EXPLAIN ANALYZE
+-- SELECT *
+-- FROM bookings
+-- WHERE user_id = 123
+-- ORDER BY booking_date DESC
+-- LIMIT 10;
+
+-- After adding index
+EXPLAIN ANALYZE
+SELECT *
+FROM bookings
+WHERE user_id = 123
+ORDER BY booking_date DESC
+LIMIT 10;
